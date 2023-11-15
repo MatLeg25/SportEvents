@@ -1,7 +1,7 @@
 package com.example.sportevents.data.remote
 
-import com.example.sportevents.data.remote.dto.EventsDto
-import com.example.sportevents.data.remote.dto.SchedulesDto
+import com.example.sportevents.data.remote.dto.EventDto
+import com.example.sportevents.data.remote.dto.ScheduleDto
 import retrofit2.http.GET
 
 interface EventsApi {
@@ -11,10 +11,10 @@ interface EventsApi {
     }
 
     @GET("https://us-central1-dazn-sandbox.cloudfunctions.net/getEvents")
-    suspend fun getEvents(): EventsDto
+    suspend fun getEvents(): List<EventDto>
 
     @GET("https://us-central1-dazn-sandbox.cloudfunctions.net/getSchedule")
-    suspend fun getSchedule(): SchedulesDto
+    suspend fun getSchedule():  List<ScheduleDto>
 
 
 }
