@@ -1,6 +1,6 @@
-package com.example.sportevents.data.remote.dto
+package com.example.sportevents.domain.model
 
-data class EventDto(
+data class SportSchedule(
     val date: String,
     val id: String,
     val imageUrl: String,
