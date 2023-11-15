@@ -2,7 +2,6 @@ package com.example.sportevents.domain.use_case
 
 import com.example.sportevents.data.mapper.toDomainModel
 import com.example.sportevents.data.remote.EventsApi
-import com.example.sportevents.data.remote.dto.EventDto
 import com.example.sportevents.domain.model.SportEvent
 import com.example.sportevents.util.Resource
 import okio.IOException

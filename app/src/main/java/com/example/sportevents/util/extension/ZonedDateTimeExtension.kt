@@ -1,4 +1,4 @@
-package com.example.sportevents.domain.extension
+package com.example.sportevents.util.extension
 
 import com.example.sportevents.domain.enum.DayType
 import java.time.ZonedDateTime

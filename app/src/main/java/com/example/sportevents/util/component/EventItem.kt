@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sportevents.domain.model.SportEvent
-import com.example.sportevents.domain.extension.getFormattedDate
+import com.example.sportevents.util.extension.getFormattedDate
 import java.time.ZonedDateTime
 
 @Composable

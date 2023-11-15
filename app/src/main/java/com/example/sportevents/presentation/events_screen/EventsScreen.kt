@@ -33,7 +33,7 @@ fun EventsScreen(
                         event = event,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(16.dp)
+                            .padding(vertical = 8.dp)
                     )
                 }
             }
