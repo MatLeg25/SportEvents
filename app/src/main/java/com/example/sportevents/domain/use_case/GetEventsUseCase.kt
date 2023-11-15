@@ -16,7 +16,9 @@ class GetEventsUseCase @Inject constructor(
 ) {
     suspend operator fun invoke(): Resource<List<SportEvent>> {
         return try {
-            val response = api.getEvents().map { it.toDomainModel() }
+            val response = api.getEvents()
+                .map { it.toDomainModel() }
+                .sortedBy { it.date }
             Resource.Success(response)
         } catch (e: IOException) {
             e.printStackTrace()

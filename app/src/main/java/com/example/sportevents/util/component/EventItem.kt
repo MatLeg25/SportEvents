@@ -20,13 +20,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sportevents.domain.model.SportEvent
+import java.time.ZonedDateTime
 
 @Composable
 @Preview
 fun EventItem(
     modifier: Modifier = Modifier,
     event: SportEvent = SportEvent(
-        "aaaaa",
+        ZonedDateTime.now(),
         "bbbb",
         "ccc",
         "ddd",
@@ -35,7 +36,7 @@ fun EventItem(
     )
 ) {
     Row(
-    modifier = modifier,
+    modifier = modifier.background(Color.White),
     verticalAlignment = Alignment.CenterVertically
     ) {
         Box(
@@ -65,7 +66,7 @@ fun EventItem(
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = event.date,
+                text = event.date.toString(),
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground,
