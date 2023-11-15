@@ -16,7 +16,7 @@ class EventsViewModel @Inject constructor(
     private val getEventsUseCase: GetEventsUseCase,
 ): ViewModel() {
 
-    var state by mutableStateOf(SportEventsState())
+    var state by mutableStateOf(SportEventsState(isLoading = true))
         private set
 
     init {

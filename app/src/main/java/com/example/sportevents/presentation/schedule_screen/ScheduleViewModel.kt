@@ -16,7 +16,7 @@ class ScheduleViewModel @Inject constructor(
     private val getSchedulesUseCase: GetSchedulesUseCase
 ): ViewModel() {
 
-    var state by mutableStateOf(SportSchedulesState())
+    var state by mutableStateOf(SportSchedulesState(isLoading = true))
         private set
 
     init {
