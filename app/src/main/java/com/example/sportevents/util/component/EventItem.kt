@@ -1,10 +1,13 @@
-package com.example.sportevents.util
+package com.example.sportevents.util.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,6 +24,7 @@ import com.example.sportevents.domain.model.SportEvent
 @Composable
 @Preview
 fun EventItem(
+    modifier: Modifier = Modifier,
     event: SportEvent = SportEvent(
         "aaaaa",
         "bbbb",
@@ -28,16 +32,21 @@ fun EventItem(
         "ddd",
         "eee",
         "fff",
-    ),
-    modifier: Modifier = Modifier
+    )
 ) {
     Row(
-    modifier = modifier.background(Color.Gray),
+    modifier = modifier,
     verticalAlignment = Alignment.CenterVertically
     ) {
-        Column(
-            modifier = Modifier.weight(1f)
+        Box(
+            modifier = Modifier
+                .padding(start = 20.dp)
+                .size(72.dp)
+                .background(Color.LightGray)
         ) {
+            Text(text = "VIDEŁO")
+        }
+        Column() {
             Text(
                 text = event.title,
                 fontWeight = FontWeight.SemiBold,
@@ -61,8 +70,7 @@ fun EventItem(
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground,
                 overflow = TextOverflow.Ellipsis,
-                maxLines = 1,
-                modifier = Modifier.weight(1f)
+                maxLines = 1
             )
 
         }
