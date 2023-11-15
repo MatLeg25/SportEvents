@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.sportevents.util.EventItem
 import com.example.sportevents.util.component.ErrorInfo
 
 @Composable
@@ -33,16 +34,15 @@ fun EventsScreen(
             ) {
                 items(state.events.size) { index ->
                     val event = state.events[index]
-                    Text(text = event.title)
-//                    CompanyItem(
-//                        company = company,
-//                        modifier = Modifier
-//                            .fillMaxWidth()
-//                            .padding(16.dp)
-//                    )
-                    }
+                    EventItem(
+                        event = event,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp)
+                    )
                 }
             }
+        }
     }
 
     Box(
