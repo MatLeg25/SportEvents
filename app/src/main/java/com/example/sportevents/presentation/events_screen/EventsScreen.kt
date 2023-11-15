@@ -8,9 +8,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun EventsScreen() {
+fun EventsScreen(
+    viewModel: EventsViewModel = hiltViewModel()
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
