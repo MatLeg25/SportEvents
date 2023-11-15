@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sportevents.domain.model.SportEvent
+import com.example.sportevents.domain.extension.getFormattedDate
 import java.time.ZonedDateTime
 
 @Composable
@@ -66,7 +67,7 @@ fun EventItem(
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = event.date.toString(),
+                text = event.date.getFormattedDate(),
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground,
