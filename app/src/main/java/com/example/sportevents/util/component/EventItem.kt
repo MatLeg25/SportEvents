@@ -42,7 +42,7 @@ fun EventItem(
     ) {
         Box(
             modifier = Modifier
-                .padding(start = 20.dp)
+                .padding(horizontal = 20.dp)
                 .size(72.dp)
                 .background(Color.LightGray)
         ) {
@@ -74,7 +74,6 @@ fun EventItem(
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1
             )
-
         }
     }
 
