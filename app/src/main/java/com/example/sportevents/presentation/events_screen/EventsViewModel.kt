@@ -31,6 +31,7 @@ class EventsViewModel @Inject constructor(
                         state = state.copy(
                             events = events,
                             error = null,
+                            isLoading = false
                         )
                     }
                 }

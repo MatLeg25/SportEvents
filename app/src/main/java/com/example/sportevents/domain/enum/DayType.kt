@@ -6,21 +6,15 @@ enum class DayType {
     TODAY, TOMORROW, YESTERDAY, OTHER;
 
     companion object {
-        fun fromZonedDateTime(date: ZonedDateTime): DayType {
-            val today = ZonedDateTime.now()
-            val todayDay = today.dayOfMonth
-            val todayMonth = today.month
-            val todayYear = today.year
+        fun fromZonedDateTime(zonedDateTime: ZonedDateTime): DayType {
+            val todayDate = ZonedDateTime.now().toLocalDate()
+            val zonedDate = zonedDateTime.toLocalDate()
 
-            return if (todayYear != date.year && todayMonth != date.month) {
-                DayType.OTHER
-            } else {
-                when {
-                    (date.dayOfMonth == todayDay) -> DayType.TODAY
-                    (date.dayOfMonth == todayDay + 1) -> DayType.TOMORROW
-                    (date.dayOfMonth == todayDay - 1) -> DayType.YESTERDAY
-                    else -> DayType.OTHER
-                }
+            return when {
+                (todayDate == zonedDate) -> DayType.TODAY
+                (todayDate == zonedDate.plusDays(1)) -> DayType.TOMORROW
+                (todayDate == zonedDate.minusDays(1)) -> DayType.YESTERDAY
+                else -> DayType.OTHER
             }
         }
     }
