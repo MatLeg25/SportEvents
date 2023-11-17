@@ -25,6 +25,7 @@ class ScheduleViewModel @Inject constructor(
         private set
 
     init {
+        getSportSchedules()
         screenRefresher()
     }
 
