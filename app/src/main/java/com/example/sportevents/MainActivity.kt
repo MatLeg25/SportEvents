@@ -45,14 +45,14 @@ class MainActivity : ComponentActivity() {
 
 
                 ScheduleScreen()
-                if (playVideo) {
-                    VideoPlayer(
-                        playerView = playerView,
-                        exoPlayer = exoPlayer,
-                        playVideo = playVideo,
-                        onDismiss = { dismissVideoPlayer() }
-                    )
-                }
+//                if (playVideo) {
+//                    VideoPlayer(
+//                        playerView = playerView,
+//                        exoPlayer = exoPlayer,
+//                        playVideo = playVideo,
+//                        onDismiss = { dismissVideoPlayer() }
+//                    )
+//                }
 
             }
         }

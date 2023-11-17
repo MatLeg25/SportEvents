@@ -1,5 +1,7 @@
 package com.example.sportevents.di
 
+import android.app.Application
+import androidx.media3.exoplayer.ExoPlayer
 import com.example.sportevents.data.remote.EventsApi
 import dagger.Module
 import dagger.Provides
@@ -22,6 +24,12 @@ object AppModule {
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
             .create()
+    }
+
+    @Provides
+    @Singleton
+    fun provideExoPlayer(app: Application): ExoPlayer {
+        return ExoPlayer.Builder(app).build()
     }
 
 }

@@ -23,38 +23,31 @@ import androidx.media3.ui.PlayerView
 
 @Composable
 fun VideoPlayer(
-    playerView: PlayerView,
+    uri: Uri,
     exoPlayer: ExoPlayer,
-    playVideo: Boolean,
     onDismiss: () -> Unit
 ) {
-    if (playVideo) {
-        Dialog(onDismissRequest = {
-            onDismiss()
-        }) {
-            Surface(
-                shape = RoundedCornerShape(16.dp),
-                color = Color.DarkGray
-            ) {
-                Box(
-                    contentAlignment = Alignment.Center,
-                ) {
-                    ContentView(
-                        playerView = playerView,
-                        onReady = {
-                            exoPlayer.setMediaItem(
-                                MediaItem.fromUri(
-                                    Uri.parse("https://firebasestorage.googleapis.com/v0/b/dazn-recruitment/o/promo.mp4?alt=media")
-                                )
-                            )
-                            exoPlayer.prepare()
-                        }
-                    )
-                    Button(
-                        onClick = { onDismiss()}
-                    ) {
-                        Text(text = "END")
+    Dialog(onDismissRequest = {
+        onDismiss()
+    }) {
+        Surface(
+            shape = RoundedCornerShape(16.dp),
+            color = Color.DarkGray
+        ) {
+            Column() {
+                ContentView(
+                    exoPlayer = exoPlayer,
+                    onReady = {
+                        exoPlayer.setMediaItem(
+                            MediaItem.fromUri(uri)
+                        )
+                        exoPlayer.prepare()
                     }
+                )
+                Button(
+                    onClick = { onDismiss() }
+                ) {
+                    Text(text = "END")
                 }
             }
         }
@@ -64,7 +57,7 @@ fun VideoPlayer(
 
 @Composable
 fun ContentView(
-    playerView: PlayerView,
+    exoPlayer: ExoPlayer,
     onReady: () -> Unit
 ) {
 
@@ -80,7 +73,9 @@ fun ContentView(
         ) {
             AndroidView(
                 factory = {
-                    playerView
+                    PlayerView(it).also {
+                        it.player = exoPlayer
+                    }
                 },
                 //modifier = Modifier.wrapContentSize(),
                 modifier = Modifier.size(100.dp),
