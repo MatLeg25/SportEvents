@@ -35,6 +35,11 @@ fun VideoPlayer(
             color = Color.DarkGray
         ) {
             Column() {
+                Button(
+                    onClick = { onDismiss() }
+                ) {
+                    Text(text = "X") //TODO set X icon, move to top right
+                }
                 ContentView(
                     exoPlayer = exoPlayer,
                     onReady = {
@@ -44,11 +49,6 @@ fun VideoPlayer(
                         exoPlayer.prepare()
                     }
                 )
-                Button(
-                    onClick = { onDismiss() }
-                ) {
-                    Text(text = "END")
-                }
             }
         }
     }
@@ -68,7 +68,7 @@ fun ContentView(
 
     Surface(color = Color.Black) {
         Column(
-            modifier = Modifier.size(100.dp),
+            modifier = Modifier.size(200.dp), //TODO adjust player size
             verticalArrangement = Arrangement.Center
         ) {
             AndroidView(
@@ -77,8 +77,6 @@ fun ContentView(
                         it.player = exoPlayer
                     }
                 },
-                //modifier = Modifier.wrapContentSize(),
-                modifier = Modifier.size(100.dp),
                 update = { }
             )
         }
