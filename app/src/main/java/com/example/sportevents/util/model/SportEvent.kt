@@ -1,8 +1,8 @@
-package com.example.sportevents.domain.model
+package com.example.sportevents.util.model
 
 import java.time.ZonedDateTime
 
-data class SportSchedule(
+data class UiEventModel(
     val date: ZonedDateTime,
     val id: String,
     val imageUrl: String,

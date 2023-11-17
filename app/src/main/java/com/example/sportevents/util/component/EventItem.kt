@@ -26,8 +26,8 @@ import androidx.compose.ui.unit.sp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.example.sportevents.R
-import com.example.sportevents.domain.model.SportEvent
 import com.example.sportevents.util.extension.getFormattedDate
+import com.example.sportevents.util.model.UiEventModel
 import java.time.ZonedDateTime
 
 @OptIn(ExperimentalCoilApi::class)
@@ -35,7 +35,7 @@ import java.time.ZonedDateTime
 @Preview
 fun EventItem(
     modifier: Modifier = Modifier,
-    event: SportEvent = SportEvent(
+    eventModel: UiEventModel = UiEventModel(
         ZonedDateTime.now(),
         "bbbb",
         "ccc",
@@ -56,20 +56,20 @@ fun EventItem(
         ) {
             Image(
                 painter = rememberImagePainter(
-                    data = event.imageUrl,
+                    data = eventModel.imageUrl,
                     builder = {
                         crossfade(true)
                         error(R.drawable.ic_launcher_background) //todo set error image
                     }
                 ),
-                contentDescription = event.title,
+                contentDescription = eventModel.title,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxHeight().aspectRatio(1f)
             )
         }
         Column() {
             Text(
-                text = event.title,
+                text = eventModel.title,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground,
@@ -77,7 +77,7 @@ fun EventItem(
                 maxLines = 1,
             )
             Text(
-                text = event.subtitle,
+                text = eventModel.subtitle,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground,
@@ -86,7 +86,7 @@ fun EventItem(
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = event.date.getFormattedDate(),
+                text = eventModel.date.getFormattedDate(),
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground,
