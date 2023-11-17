@@ -2,7 +2,7 @@ package com.example.sportevents.domain.model
 
 import java.time.ZonedDateTime
 
-data class SportSchedule(
+data class Event(
     val date: ZonedDateTime,
     val id: String,
     val imageUrl: String,

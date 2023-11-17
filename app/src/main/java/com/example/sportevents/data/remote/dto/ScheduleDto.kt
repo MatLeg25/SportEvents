@@ -6,5 +6,4 @@ data class ScheduleDto(
     val imageUrl: String,
     val subtitle: String,
     val title: String,
-    val videoUrl: String?
 )

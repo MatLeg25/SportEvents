@@ -21,7 +21,7 @@ class EventsViewModel @Inject constructor(
     val exoPlayer: ExoPlayer
 ): ViewModel() {
 
-    var state by mutableStateOf(SportEventsState(isLoading = true))
+    var state by mutableStateOf(EventsState(isLoading = true))
         private set
 
     init {

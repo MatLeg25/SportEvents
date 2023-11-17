@@ -2,9 +2,7 @@ package com.example.sportevents.domain.use_case
 
 import com.example.sportevents.data.mapper.toDomainModel
 import com.example.sportevents.data.remote.EventsApi
-import com.example.sportevents.data.remote.dto.EventDto
-import com.example.sportevents.data.remote.dto.ScheduleDto
-import com.example.sportevents.domain.model.SportSchedule
+import com.example.sportevents.domain.model.Schedule
 import com.example.sportevents.util.Resource
 import okio.IOException
 import retrofit2.HttpException
@@ -15,7 +13,7 @@ import javax.inject.Singleton
 class GetSchedulesUseCase @Inject constructor(
     private val api: EventsApi
 ) {
-    suspend operator fun invoke(): Resource<List<SportSchedule>> {
+    suspend operator fun invoke(): Resource<List<Schedule>> {
         return try {
             val response = api.getSchedule()
                 .map { it.toDomainModel() }

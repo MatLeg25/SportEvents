@@ -1,4 +1,4 @@
-package com.example.sportevents.util.component
+package com.example.sportevents.util.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,7 +27,7 @@ import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.example.sportevents.R
 import com.example.sportevents.util.extension.getFormattedDate
-import com.example.sportevents.util.model.UiEventModel
+import com.example.sportevents.util.models.UiEventModel
 import java.time.ZonedDateTime
 
 @OptIn(ExperimentalCoilApi::class)
@@ -40,8 +40,7 @@ fun EventItem(
         "bbbb",
         "ccc",
         "ddd",
-        "eee",
-        "fff",
+        "eee"
     )
 ) {
     Row(

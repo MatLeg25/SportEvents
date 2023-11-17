@@ -13,10 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.sportevents.domain.mappers.toUiEventModel
-import com.example.sportevents.util.component.EventItem
-import com.example.sportevents.util.component.ErrorInfo
-import com.example.sportevents.util.component.VideoPlayer
+import com.example.sportevents.util.extension.toUiEventModel
+import com.example.sportevents.util.components.EventItem
+import com.example.sportevents.util.components.ErrorInfo
+import com.example.sportevents.util.components.VideoPlayer
 
 @Composable
 fun EventsScreen(
