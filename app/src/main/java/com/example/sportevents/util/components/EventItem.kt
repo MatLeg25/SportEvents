@@ -27,6 +27,7 @@ import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.example.sportevents.R
 import com.example.sportevents.util.extension.getFormattedDate
+import com.example.sportevents.util.extension.getFormattedDate2
 import com.example.sportevents.util.models.UiEventModel
 import java.time.ZonedDateTime
 
@@ -41,7 +42,8 @@ fun EventItem(
         "ccc",
         "ddd",
         "eee"
-    )
+    ),
+    useDateFormat2: Boolean = false //todo rename
 ) {
     Row(
     modifier = modifier.background(Color.White),
@@ -85,7 +87,7 @@ fun EventItem(
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = eventModel.date.getFormattedDate(),
+                text = if (useDateFormat2) eventModel.date.getFormattedDate() else eventModel.date.getFormattedDate2(),
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground,
