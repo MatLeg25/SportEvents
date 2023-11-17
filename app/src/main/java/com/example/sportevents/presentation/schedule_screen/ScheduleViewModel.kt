@@ -8,19 +8,24 @@ import androidx.lifecycle.viewModelScope
 import com.example.sportevents.domain.use_case.GetSchedulesUseCase
 import com.example.sportevents.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.time.Duration.Companion.seconds
+
+//TODO associate refreshing with the activity lifecycle (e.g.: stop when the user minimizes the application, switches tabs)
 
 @HiltViewModel
 class ScheduleViewModel @Inject constructor(
     private val getSchedulesUseCase: GetSchedulesUseCase
 ): ViewModel() {
 
+    private val autoRefreshActive = true
     var state by mutableStateOf(SchedulesState(isLoading = true))
         private set
 
     init {
-        getSportSchedules()
+        screenRefresher()
     }
 
     private fun getSportSchedules() {
@@ -41,6 +46,15 @@ class ScheduleViewModel @Inject constructor(
                         isLoading = false
                     )
                 }
+            }
+        }
+    }
+
+    private fun screenRefresher(){
+        viewModelScope.launch {
+            while (autoRefreshActive) {
+                delay(30.seconds)
+                getSportSchedules()
             }
         }
     }

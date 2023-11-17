@@ -13,7 +13,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-//TODO associate video player with activity lifecycle (fe. : stop player when user minimalist app, toggle tabs)
+//TODO associate videoPLayer with the activity lifecycle (e.g.: stop when the user minimizes the application, switches tabs)
 
 @HiltViewModel
 class EventsViewModel @Inject constructor(
