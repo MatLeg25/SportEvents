@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,6 +17,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.sportevents.util.extension.toUiEventModel
 import com.example.sportevents.util.components.ErrorInfo
 import com.example.sportevents.util.components.EventItem
+import com.example.sportevents.util.components.dateFormatter
 
 @Preview
 @Composable
@@ -30,13 +32,14 @@ fun ScheduleScreen(
             LazyColumn(
                 modifier = Modifier.fillMaxSize()
             ) {
-                items(state.schedules.size) { index ->
-                    val event = state.schedules[index]
+                items(state.schedules) { schedule ->
+                    val eventModel = schedule.toUiEventModel()
                     EventItem(
-                        eventModel = event.toUiEventModel(),
+                        eventModel = eventModel,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 8.dp)
+                            .padding(vertical = 8.dp),
+                        formattedDate = dateFormatter(eventModel.date)
                     )
                 }
             }

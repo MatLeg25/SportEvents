@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -43,24 +44,21 @@ fun EventItem(
         "ddd",
         "eee"
     ),
-    useDefaultFormatter: Boolean = true //todo rethink this arg (can be replaced with ENUM)
+    formattedDate: String = "1234",
 ) {
+    val backgroundGradient = Brush.linearGradient(
+        0.0f to MaterialTheme.colorScheme.primary,
+        500.0f to MaterialTheme.colorScheme.secondary,
+        start = Offset.Zero,
+        end = Offset.Infinite
+    )
     Row(
         modifier = modifier
             .shadow(
                 elevation = 1.dp,
                 shape = RoundedCornerShape(5.dp)
             )
-            .background(
-                brush = Brush.verticalGradient(
-                    colors = listOf(
-                        Color.LightGray,
-                        MaterialTheme.colorScheme.background,
-                        Color.LightGray,
-                        Color.Gray,
-                    )
-                )
-            ),
+            .background(backgroundGradient),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Box(
@@ -89,24 +87,22 @@ fun EventItem(
             Text(
                 text = eventModel.title,
                 style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onBackground,
+                color = MaterialTheme.colorScheme.onSecondary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
             Text(
                 text = eventModel.subtitle,
                 style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onBackground,
+                color = MaterialTheme.colorScheme.onSecondary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text =
-                    if (useDefaultFormatter) dateFormatter(eventModel.date)
-                    else dateFormatterSchedule(eventModel.date),
+                text = formattedDate,
                 style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onBackground,
+                color = MaterialTheme.colorScheme.onSecondary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1
             )
