@@ -18,13 +18,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.example.sportevents.R
@@ -47,20 +46,27 @@ fun EventItem(
     useDefaultFormatter: Boolean = true //todo rethink this arg (can be replaced with ENUM)
 ) {
     Row(
-    modifier = modifier
-        .shadow(
-            elevation = 1.dp,
-            shape = RoundedCornerShape(5.dp)
-        )
-        .background(Color.White),
-    verticalAlignment = Alignment.CenterVertically
+        modifier = modifier
+            .shadow(
+                elevation = 1.dp,
+                shape = RoundedCornerShape(5.dp)
+            )
+            .background(
+                brush = Brush.verticalGradient(
+                    colors = listOf(
+                        Color.LightGray,
+                        MaterialTheme.colorScheme.background,
+                        Color.LightGray,
+                        Color.Gray,
+                    )
+                )
+            ),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Box(
             modifier = Modifier
-                .padding(horizontal = 20.dp)
-
+                .padding(horizontal = 10.dp)
                 .size(72.dp)
-                .background(Color.LightGray)
         ) {
             Image(
                 painter = rememberImagePainter(
@@ -73,31 +79,33 @@ fun EventItem(
                 ),
                 contentDescription = eventModel.title,
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxHeight().aspectRatio(1f)
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .aspectRatio(1f)
+                    .background(Color.Gray)
             )
         }
         Column() {
             Text(
                 text = eventModel.title,
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 16.sp,
+                style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.onBackground,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
             Text(
                 text = eventModel.subtitle,
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 16.sp,
+                style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onBackground,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = if (useDefaultFormatter) dateFormatter(eventModel.date) else dateFormatterSchedule(eventModel.date),
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 16.sp,
+                text =
+                    if (useDefaultFormatter) dateFormatter(eventModel.date)
+                    else dateFormatterSchedule(eventModel.date),
+                style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onBackground,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1
