@@ -9,4 +9,5 @@ fun Schedule.toUiEventModel() = UiEventModel(
     imageUrl = imageUrl,
     subtitle = subtitle,
     title = title,
+    videoUri = null
 )

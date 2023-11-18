@@ -33,13 +33,12 @@ fun ScheduleScreen(
                 modifier = Modifier.fillMaxSize()
             ) {
                 items(state.schedules) { schedule ->
-                    val eventModel = schedule.toUiEventModel()
                     EventItem(
-                        eventModel = eventModel,
+                        eventModel = schedule,
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 8.dp),
-                        formattedDate = dateFormatter(eventModel.date)
+                        formattedDate = dateFormatter(schedule.date)
                     )
                 }
             }

@@ -1,10 +1,10 @@
 package com.example.sportevents.presentation.events_screen
 
 import android.net.Uri
-import com.example.sportevents.domain.model.Event
+import com.example.sportevents.util.models.UiEventModel
 
 data class EventsState(
-    val events: List<Event> = emptyList(),
+    val events: List<UiEventModel> = emptyList(),
     val displayVideoPlayer: Boolean = false,
     val videoUri: Uri? = null,
     val isLoading: Boolean = false,

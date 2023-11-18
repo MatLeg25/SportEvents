@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sportevents.domain.use_case.GetSchedulesUseCase
 import com.example.sportevents.util.Resource
+import com.example.sportevents.util.extension.toUiEventModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -35,7 +36,7 @@ class ScheduleViewModel @Inject constructor(
                 is Resource.Success -> {
                     result.data?.let { schedules ->
                         state = state.copy(
-                            schedules = schedules,
+                            schedules = schedules.map { it.toUiEventModel() },
                             error = null,
                             isLoading = false
                         )

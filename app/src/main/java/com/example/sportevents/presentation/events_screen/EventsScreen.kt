@@ -35,18 +35,17 @@ fun EventsScreen(
                 modifier = Modifier.fillMaxSize()
             ) {
                 items(state.events) { event ->
-                    val eventModel = event.toUiEventModel()
                     EventItem(
-                        eventModel = eventModel,
+                        eventModel = event,
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 8.dp)
                             .clickable {
-                                event.videoUrl?.let { videoUrl ->
-                                    viewModel.playVideo(videoUrl)
+                                event.videoUri?.let { videoUri ->
+                                    viewModel.playVideo(videoUri)
                                 }
                             },
-                        formattedDate = dateFormatter(eventModel.date)
+                        formattedDate = dateFormatter(event.date)
                     )
                 }
             }

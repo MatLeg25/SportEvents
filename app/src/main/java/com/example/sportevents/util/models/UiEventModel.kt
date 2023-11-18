@@ -1,5 +1,6 @@
 package com.example.sportevents.util.models
 
+import android.net.Uri
 import java.time.ZonedDateTime
 
 data class UiEventModel(
@@ -8,4 +9,5 @@ data class UiEventModel(
     val imageUrl: String,
     val subtitle: String,
     val title: String,
+    val videoUri: Uri? = null
 )
