@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -73,12 +74,12 @@ fun EventItem(
                         crossfade(true)
                         error(R.drawable.ic_launcher_background) //todo set error image
                         fallback(R.drawable.ic_launcher_background) //todo set no data image
-                    }
+                    },
                 ),
                 contentDescription = eventModel.title,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .fillMaxHeight()
+                    .fillMaxWidth()
                     .aspectRatio(1f)
                     .background(Color.Gray)
             )
