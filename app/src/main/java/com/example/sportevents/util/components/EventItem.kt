@@ -27,6 +27,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
+import coil.compose.AsyncImage
 import coil.compose.rememberImagePainter
 import com.example.sportevents.R
 import com.example.sportevents.presentation.schedule_screen.components.dateFormatterSchedule
@@ -67,15 +68,9 @@ fun EventItem(
                 .padding(horizontal = 10.dp)
                 .size(72.dp)
         ) {
-            Image(
-                painter = rememberImagePainter(
-                    data = eventModel.imageUrl,
-                    builder = {
-                        crossfade(true)
-                        error(R.drawable.ic_launcher_background) //todo set error image
-                        fallback(R.drawable.ic_launcher_background) //todo set no data image
-                    },
-                ),
+            //todo set default image when cannot fetch
+            AsyncImage(
+                model = eventModel.imageUrl,
                 contentDescription = eventModel.title,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
