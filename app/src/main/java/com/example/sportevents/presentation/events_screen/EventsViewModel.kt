@@ -13,8 +13,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-//TODO associate videoPLayer with the activity lifecycle (e.g.: stop when the user minimizes the application, switches tabs)
-
 @HiltViewModel
 class EventsViewModel @Inject constructor(
     private val getEventsUseCase: GetEventsUseCase,
@@ -26,8 +24,6 @@ class EventsViewModel @Inject constructor(
 
     init {
         getEvents()
-        exoPlayer.prepare()
-        exoPlayer.playWhenReady = true
     }
 
     private fun getEvents() {
@@ -66,8 +62,8 @@ class EventsViewModel @Inject constructor(
         state = state.copy(
             displayVideoPlayer = false
         )
-        exoPlayer.pause()
-        exoPlayer.playWhenReady = false
+        exoPlayer.stop()
+        exoPlayer.clearMediaItems()
     }
 
     override fun onCleared() {
