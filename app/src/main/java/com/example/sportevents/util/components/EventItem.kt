@@ -44,7 +44,7 @@ fun EventItem(
     formattedDate: String = "1234",
 ) {
 
-    val listColors = listOf(MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.secondary)
+    val listColors = listOf(MaterialTheme.colorScheme.secondary, MaterialTheme.colorScheme.tertiary)
     val customBrush = remember {
         Brush.linearGradient(
             colors = listColors,
