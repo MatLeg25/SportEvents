@@ -33,7 +33,7 @@ fun EventItem(
     formattedDate: String,
 ) {
 
-    val listColors = listOf(MaterialTheme.colorScheme.secondary, MaterialTheme.colorScheme.tertiary)
+    val listColors = listOf(MaterialTheme.colorScheme.secondary, MaterialTheme.colorScheme.secondaryContainer)
     val customBrush = remember {
         Brush.linearGradient(
             colors = listColors,
@@ -73,14 +73,14 @@ fun EventItem(
             Text(
                 text = eventModel.title,
                 style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onPrimary,
+                color = MaterialTheme.colorScheme.onSecondary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
             Text(
                 text = eventModel.subtitle,
                 style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onPrimary,
+                color = MaterialTheme.colorScheme.onSecondary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
@@ -88,7 +88,7 @@ fun EventItem(
             Text(
                 text = formattedDate,
                 style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onPrimary,
+                color = MaterialTheme.colorScheme.onSecondary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1
             )

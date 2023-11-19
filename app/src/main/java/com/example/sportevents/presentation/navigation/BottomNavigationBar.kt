@@ -1,6 +1,7 @@
 package com.example.sportevents.presentation.navigation
 
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
@@ -16,7 +17,10 @@ fun BottomNavigationBar(navController: NavController) {
     var selectedItemIndex by rememberSaveable {
         mutableStateOf(0)
     }
-    NavigationBar {
+    NavigationBar(
+        containerColor = MaterialTheme.colorScheme.outline,
+        contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+    ) {
         screens.forEachIndexed { index, item ->
             val isSelected = (selectedItemIndex == index)
             NavigationBarItem(
@@ -26,7 +30,11 @@ fun BottomNavigationBar(navController: NavController) {
                     navController.navigate(item.route)
                 },
                 label = {
-                    Text(text = item.title)
+                    Text(
+                        text = item.title,
+                        color = MaterialTheme.colorScheme.outlineVariant,
+                        style = MaterialTheme.typography.labelSmall,
+                    )
                 },
                 icon = {
                     Icon(
