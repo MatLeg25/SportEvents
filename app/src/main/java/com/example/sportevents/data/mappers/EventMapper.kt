@@ -1,4 +1,4 @@
-package com.example.sportevents.data.mapper
+package com.example.sportevents.data.mappers
 
 import com.example.sportevents.data.remote.dto.EventDto
 import com.example.sportevents.domain.model.Event

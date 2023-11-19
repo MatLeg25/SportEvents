@@ -1,6 +1,6 @@
 package com.example.sportevents.data.repository
 
-import com.example.sportevents.data.mapper.toDomainModel
+import com.example.sportevents.data.mappers.toDomainModel
 import com.example.sportevents.data.remote.EventsApi
 import com.example.sportevents.domain.model.Event
 import com.example.sportevents.domain.model.Schedule
@@ -12,6 +12,7 @@ import javax.inject.Inject
 class EventsRepositoryImpl @Inject constructor(
     private val api: EventsApi
 ): EventsRepository {
+
     override suspend fun getEvents(): Result<List<Event>> {
         return try {
             val response = api.getEvents()

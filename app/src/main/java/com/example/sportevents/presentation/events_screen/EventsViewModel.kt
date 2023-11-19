@@ -45,7 +45,6 @@ class EventsViewModel @Inject constructor(
         }
     }
 
-    //TODO uriString validation?
     fun playVideo(uri: Uri) {
         state = state.copy(
             displayVideoPlayer = true,

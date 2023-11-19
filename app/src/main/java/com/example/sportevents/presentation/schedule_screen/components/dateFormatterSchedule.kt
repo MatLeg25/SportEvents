@@ -15,7 +15,6 @@ fun dateFormatterSchedule(date: ZonedDateTime): String {
         val today = ZonedDateTime.now()
         val hoursDifference = unit.between(today, date).toInt()
         return if (hoursDifference <= 24) 1 else (hoursDifference / 24)
-
     }
 
     return when (dayType) {
