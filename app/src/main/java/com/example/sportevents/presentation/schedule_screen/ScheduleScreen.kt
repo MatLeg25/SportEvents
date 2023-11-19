@@ -14,9 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.sportevents.presentation.schedule_screen.components.dateFormatterSchedule
 import com.example.sportevents.util.components.ErrorInfo
 import com.example.sportevents.util.components.EventItem
-import com.example.sportevents.util.components.dateFormatter
 
 @Preview
 @Composable
@@ -37,7 +37,7 @@ fun ScheduleScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 8.dp),
-                        formattedDate = dateFormatter(schedule.date)
+                        formattedDate = dateFormatterSchedule(schedule.date)
                     )
                 }
             }
