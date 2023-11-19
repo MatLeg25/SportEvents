@@ -2,7 +2,6 @@ package com.example.sportevents.domain.use_case
 
 import com.example.sportevents.domain.model.Event
 import com.example.sportevents.domain.repository.EventsRepository
-import com.example.sportevents.util.Resource
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -10,7 +9,7 @@ import javax.inject.Singleton
 class GetEventsUseCase @Inject constructor(
     private val eventsRepository: EventsRepository
 ) {
-    suspend operator fun invoke(): Resource<List<Event>> {
+    suspend operator fun invoke(): Result<List<Event>> {
         return eventsRepository.getEvents()
     }
 

@@ -5,42 +5,40 @@ import com.example.sportevents.data.remote.EventsApi
 import com.example.sportevents.domain.model.Event
 import com.example.sportevents.domain.model.Schedule
 import com.example.sportevents.domain.repository.EventsRepository
-import com.example.sportevents.util.Resource
 import okio.IOException
 import retrofit2.HttpException
 import javax.inject.Inject
-import javax.inject.Singleton
 
 class EventsRepositoryImpl @Inject constructor(
     private val api: EventsApi
 ): EventsRepository {
-    override suspend fun getEvents(): Resource<List<Event>> {
+    override suspend fun getEvents(): Result<List<Event>> {
         return try {
             val response = api.getEvents()
                 .map { it.toDomainModel() }
                 .sortedBy { it.date }
-            Resource.Success(response)
+            Result.success(response)
         } catch (e: IOException) {
             e.printStackTrace()
-            Resource.Error("Couldn't load events")
+            Result.failure(e)
         } catch (e: HttpException) {
             e.printStackTrace()
-            Resource.Error("Couldn't load events")
+            Result.failure(e)
         }
     }
 
-    override suspend fun getSchedules(): Resource<List<Schedule>> {
+    override suspend fun getSchedules(): Result<List<Schedule>> {
         return try {
             val response = api.getSchedule()
                 .map { it.toDomainModel() }
                 .sortedBy { it.date }
-            Resource.Success(response)
+            Result.success(response)
         } catch (e: IOException) {
             e.printStackTrace()
-            Resource.Error("Couldn't load events")
+            Result.failure(e)
         } catch (e: HttpException) {
             e.printStackTrace()
-            Resource.Error("Couldn't load events")
+            Result.failure(e)
         }
     }
 }

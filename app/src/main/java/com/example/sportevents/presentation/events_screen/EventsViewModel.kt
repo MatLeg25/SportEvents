@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.media3.exoplayer.ExoPlayer
 import com.example.sportevents.domain.use_case.GetEventsUseCase
-import com.example.sportevents.util.Resource
 import com.example.sportevents.util.extension.toUiEventModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -29,26 +28,22 @@ class EventsViewModel @Inject constructor(
 
     private fun getEvents() {
         viewModelScope.launch {
-            when (val result = getEventsUseCase()) {
-                is Resource.Success -> {
-                    result.data?.let { events ->
-                        state = state.copy(
-                            events = events.map { it.toUiEventModel() },
-                            error = null,
-                            isLoading = false
-                        )
-                    }
-                }
-                is Resource.Error -> {
+            getEventsUseCase()
+                .onSuccess { events ->
                     state = state.copy(
-                        error = result.message,
+                        events = events.map { it.toUiEventModel() },
+                        error = null,
                         isLoading = false
                     )
                 }
-            }
+                .onFailure {
+                    state = state.copy(
+                        error = it.message,
+                        isLoading = false
+                    )
+                }
         }
     }
-
 
     //TODO uriString validation?
     fun playVideo(uri: Uri) {

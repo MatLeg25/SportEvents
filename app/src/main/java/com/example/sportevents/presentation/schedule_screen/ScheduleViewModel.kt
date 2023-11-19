@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sportevents.domain.use_case.GetSchedulesUseCase
-import com.example.sportevents.util.Resource
 import com.example.sportevents.util.extension.toUiEventModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -32,23 +31,20 @@ class ScheduleViewModel @Inject constructor(
 
     private fun getSportSchedules() {
         viewModelScope.launch {
-            when (val result = getSchedulesUseCase()) {
-                is Resource.Success -> {
-                    result.data?.let { schedules ->
-                        state = state.copy(
-                            schedules = schedules.map { it.toUiEventModel() },
-                            error = null,
-                            isLoading = false
-                        )
-                    }
-                }
-                is Resource.Error -> {
+            getSchedulesUseCase()
+                .onSuccess { schedules ->
                     state = state.copy(
-                        error = result.message,
+                        schedules = schedules.map { it.toUiEventModel() },
+                        error = null,
                         isLoading = false
                     )
                 }
-            }
+                .onFailure {
+                    state = state.copy(
+                        error = it.message,
+                        isLoading = false
+                    )
+                }
         }
     }
 
