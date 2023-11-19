@@ -14,10 +14,17 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.LinearGradientShader
+import androidx.compose.ui.graphics.ShaderBrush
+import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -40,19 +47,26 @@ fun EventItem(
     formattedDate: String = "1234",
 ) {
 
+    val listColors = listOf(MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.secondary)
+    val customBrush = remember {
+        Brush.linearGradient(
+                    colors = listColors,
+                    tileMode = TileMode.Mirror
+                )
+    }
+
+
     Row(
         modifier = modifier
             .shadow(
                 elevation = 1.dp,
-                shape = RoundedCornerShape(5.dp)
+                shape = RoundedCornerShape(10.dp)
             )
-            .background(MaterialTheme.colorScheme.secondary),
+            .background(customBrush),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Box(
-            modifier = Modifier
-                .padding(horizontal = 10.dp)
-                .size(72.dp)
+            modifier = Modifier.padding(end = 10.dp)
         ) {
             //todo set default image when cannot fetch
             AsyncImage(
@@ -60,23 +74,28 @@ fun EventItem(
                 contentDescription = eventModel.title,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(1f)
+                    .size(72.dp)
                     .background(Color.Gray)
+                    .clip(
+                        RoundedCornerShape(
+                            topStart = 10.dp,
+                            bottomStart = 10.dp,
+                        )
+                    )
             )
         }
         Column() {
             Text(
                 text = eventModel.title,
                 style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onSecondary,
+                color = MaterialTheme.colorScheme.onPrimary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
             Text(
                 text = eventModel.subtitle,
                 style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onSecondary,
+                color = MaterialTheme.colorScheme.onPrimary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
@@ -84,7 +103,7 @@ fun EventItem(
             Text(
                 text = formattedDate,
                 style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onSecondary,
+                color = MaterialTheme.colorScheme.onPrimary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1
             )
