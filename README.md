@@ -11,6 +11,9 @@ On the second screen, the user can find a schedule of upcoming events - automati
 - Schedule screen: <br />
 ![image](https://github.com/MatLeg25/SportEvents/assets/70913892/cefb8e91-3c88-4851-bddb-26a0ee6a815c)
 
+- Video player: <br />
+![image](https://github.com/MatLeg25/SportEvents/assets/70913892/e1c67b37-8c3a-4fa8-bca3-5dabfe8ffa71)
+
 ## Tech stack:
 - Android
 - Kotlin, Coroutines
