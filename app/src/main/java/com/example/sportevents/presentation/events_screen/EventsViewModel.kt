@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.media3.exoplayer.ExoPlayer
 import com.example.sportevents.domain.use_case.GetEventsUseCase
-import com.example.sportevents.util.extension.toUiEventModel
+import com.example.sportevents.presentation.util.extension.toUiEventModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.example.sportevents.util.models
+package com.example.sportevents.presentation.util.models
 
 import android.net.Uri
 import java.time.ZonedDateTime

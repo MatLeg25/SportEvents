@@ -1,4 +1,4 @@
-package com.example.sportevents.util.components
+package com.example.sportevents.presentation.util.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -24,7 +24,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.sportevents.util.models.UiEventModel
+import com.example.sportevents.presentation.util.models.UiEventModel
 
 @Composable
 fun EventItem(

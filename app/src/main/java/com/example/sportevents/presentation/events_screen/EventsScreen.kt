@@ -15,11 +15,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.sportevents.presentation.schedule_screen.components.dateFormatterSchedule
-import com.example.sportevents.util.extension.toUiEventModel
-import com.example.sportevents.util.components.EventItem
-import com.example.sportevents.util.components.ErrorInfo
-import com.example.sportevents.util.components.VideoPlayer
-import com.example.sportevents.util.components.dateFormatter
+import com.example.sportevents.presentation.util.extension.toUiEventModel
+import com.example.sportevents.presentation.util.components.EventItem
+import com.example.sportevents.presentation.util.components.ErrorInfo
+import com.example.sportevents.presentation.util.components.VideoPlayer
+import com.example.sportevents.presentation.util.components.dateFormatter
 
 @Composable
 fun EventsScreen(

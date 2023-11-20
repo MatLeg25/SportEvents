@@ -1,4 +1,4 @@
-package com.example.sportevents.util.extension
+package com.example.sportevents.presentation.util.extension
 
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter

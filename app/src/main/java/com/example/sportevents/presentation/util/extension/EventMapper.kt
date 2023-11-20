@@ -1,8 +1,8 @@
-package com.example.sportevents.util.extension
+package com.example.sportevents.presentation.util.extension
 
 import android.net.Uri
 import com.example.sportevents.domain.model.Event
-import com.example.sportevents.util.models.UiEventModel
+import com.example.sportevents.presentation.util.models.UiEventModel
 
 fun Event.toUiEventModel(): UiEventModel {
     val uri = videoUrl?.let { Uri.parse(it) }

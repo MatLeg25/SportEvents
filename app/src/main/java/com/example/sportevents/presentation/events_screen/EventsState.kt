@@ -1,7 +1,7 @@
 package com.example.sportevents.presentation.events_screen
 
 import android.net.Uri
-import com.example.sportevents.util.models.UiEventModel
+import com.example.sportevents.presentation.util.models.UiEventModel
 
 data class EventsState(
     val events: List<UiEventModel> = emptyList(),

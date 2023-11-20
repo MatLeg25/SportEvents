@@ -1,4 +1,4 @@
-package com.example.sportevents.util.components
+package com.example.sportevents.presentation.util.components
 
 import android.net.Uri
 import androidx.compose.foundation.clickable

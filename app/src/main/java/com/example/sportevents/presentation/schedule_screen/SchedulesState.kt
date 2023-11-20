@@ -1,6 +1,6 @@
 package com.example.sportevents.presentation.schedule_screen
 
-import com.example.sportevents.util.models.UiEventModel
+import com.example.sportevents.presentation.util.models.UiEventModel
 
 data class SchedulesState(
     val schedules: List<UiEventModel> = emptyList(),

@@ -15,8 +15,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.sportevents.presentation.schedule_screen.components.dateFormatterSchedule
-import com.example.sportevents.util.components.ErrorInfo
-import com.example.sportevents.util.components.EventItem
+import com.example.sportevents.presentation.util.components.ErrorInfo
+import com.example.sportevents.presentation.util.components.EventItem
 
 @Preview
 @Composable

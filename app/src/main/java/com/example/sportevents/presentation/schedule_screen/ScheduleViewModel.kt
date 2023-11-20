@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sportevents.domain.use_case.GetSchedulesUseCase
-import com.example.sportevents.util.extension.toUiEventModel
+import com.example.sportevents.presentation.util.extension.toUiEventModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

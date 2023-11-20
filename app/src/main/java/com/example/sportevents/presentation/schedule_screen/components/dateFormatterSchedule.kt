@@ -2,7 +2,7 @@ package com.example.sportevents.presentation.schedule_screen.components
 
 import androidx.compose.runtime.Composable
 import com.example.sportevents.domain.enum.DayType
-import com.example.sportevents.util.extension.getFormattedTime
+import com.example.sportevents.presentation.util.extension.getFormattedTime
 import java.time.ZonedDateTime
 import java.time.temporal.ChronoUnit
 

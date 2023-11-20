@@ -1,4 +1,4 @@
-package com.example.sportevents.util.components
+package com.example.sportevents.presentation.util.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
